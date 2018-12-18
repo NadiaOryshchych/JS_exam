@@ -8,7 +8,6 @@ function form() {
 
    let formPage = document.querySelectorAll('.main_form'),
       formModal = document.querySelectorAll('.modal_form'),
-      formCalc = document.querySelector('.calc_form'),
       input = document.querySelectorAll('.form_input'),
       statusMessage = document.createElement('div');
 
@@ -28,7 +27,7 @@ function form() {
          elem.appendChild(statusMessage);
 
          let request = new XMLHttpRequest();
-         request.open('POST', 'server.php');
+         request.open('POST', '../server.php');
          request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 
          let formData = new FormData(elem);

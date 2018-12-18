@@ -1,8 +1,9 @@
 function growth() {
    // Увеличение изображения
-   let img = document.querySelectorAll('.works_img');
-   let popupImg = document.createElement('div');
-   let imgBig = document.createElement('img');
+   let overlay = document.querySelector('.overlay'),
+      img = document.querySelectorAll('.works_img'),
+      popupImg = document.createElement('div'),
+      imgBig = document.createElement('img');
 
    for (let i = 0; i < img.length; i++) {
       img[i].addEventListener('click', function () {

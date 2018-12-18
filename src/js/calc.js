@@ -86,7 +86,6 @@ function calc() {
       calcForm.typeWindow = 'Пользователь выбрал тип окна: ' + tabIndex;
       calcForm.widthWindow = +winWidth.value;
       calcForm.heightWindow = +winHeight.value;
-      console.log(calcForm);
    });
    calcProNext.addEventListener('click', function () {
       calcForm.viewWindow = winView.value;
@@ -143,7 +142,7 @@ function calc() {
 
          // Отправка формы на JSON
          let request = new XMLHttpRequest();
-         request.open('POST', 'server.php');
+         request.open('POST', '../server.php');
          request.setRequestHeader('Content-type', 'application/json; charset=utf-8');
 
          let formData = new FormData(formCalc);
