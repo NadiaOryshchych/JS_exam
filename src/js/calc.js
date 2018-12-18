@@ -174,10 +174,13 @@ function calc() {
          for (let i = 0; i < input.length; i++) {
             input[i].value = '';
          }
+         for (let i = 0; i < inputCalc.length; i++) {
+            inputCalc[i].value = '';
+         }
          for (let i = 0; i < winCheck.length; i++) {
             winCheck[i].checked = false;
          }
-         winView.value = tree;
+         winView.value = 'tree';
       });
    }
    formSendCalc(formCalc);
