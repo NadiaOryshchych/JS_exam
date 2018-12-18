@@ -10,18 +10,20 @@ function modal() {
       overlay = document.querySelector('.overlay'),
       close = document.querySelectorAll('.popup_close'),
       input = document.querySelectorAll('.form_input');
+
+   function showModal(e) {
+      overlay.style.display = 'block';
+      e.style.display = 'block';
+      document.body.style.overflow = 'hidden';
+   }
    
    headerBtn.addEventListener('click', function () {
-      overlay.style.display = 'block';
-      popupEng.style.display = 'block';
-      document.body.style.overflow = 'hidden';
+      showModal(popupEng);
    });
    
    for (let i = 0; i < callback.length; i++) {
       callback[i].addEventListener('click', function () {
-         overlay.style.display = 'block';
-         popupCall.style.display = 'block';
-         document.body.style.overflow = 'hidden';
+         showModal(popupCall);
       });
    }
 
@@ -29,9 +31,7 @@ function modal() {
    for (let i = 0; i < popup.length; i++) {
       if (document.body.style.overflow !== 'hidden') {
          window.setTimeout(function () {
-            overlay.style.display = 'block';
-            popupEng.style.display = 'block';
-            document.body.style.overflow = 'hidden';
+            showModal(popupEng);
          }, 60000);
       }
    } 

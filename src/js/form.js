@@ -27,7 +27,7 @@ function form() {
          elem.appendChild(statusMessage);
 
          let request = new XMLHttpRequest();
-         request.open('POST', '../src/server.php');
+         request.open('POST', ' ../dist/server.php');
          request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 
          let formData = new FormData(elem);

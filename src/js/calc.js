@@ -1,6 +1,9 @@
 function calc() {
 // Modal calc
-   let overlay = document.querySelector('.overlay'),
+   let inputCalc = document.querySelectorAll('.calc_size'),
+      overlay = document.querySelector('.overlay'),
+      close = document.querySelectorAll('.popup_close'),
+
       glazingBtn = document.querySelectorAll('.glazing_price_btn'),
 
       popupCalc = document.querySelector('.popup_calc'),
@@ -9,6 +12,18 @@ function calc() {
 
       calcNext = document.querySelector('.popup_calc_button'),
       calcProNext = document.querySelector('.popup_calc_profile_button');
+
+   for (let i = 0; i < close.length; i++) {
+      close[i].addEventListener('click', function() {
+         for (let i = 0; i < inputCalc.length; i++) {
+            inputCalc[i].value = '';
+         }
+         winView.value = 'tree';
+         for (let i = 0; i < winCheck.length; i++) {
+            winCheck[i].checked = false;
+         }
+      });
+   }
 
    for (let i = 0; i < glazingBtn.length; i++) {
       glazingBtn[i].addEventListener('click', function () {
@@ -69,11 +84,19 @@ function calc() {
       winHeight = document.getElementById('height'),
       winView = document.getElementById('view_type'),
       winCheck = document.querySelectorAll('.checkbox'),
-      checkLabel = document.querySelectorAll('.checkbox_wrap .label'),
-      nameClient = document.getElementsByName('user_name'),
-      phoneClient = document.getElementsByName('user_phone'),
-      calcEnd = document.querySelector('.popup_calc_end_button');
+      checkLabel = document.querySelectorAll('.checkbox_wrap .label');
    let calcForm = new Object();
+
+   winCheck[0].addEventListener('change', function () {
+      if (winCheck[1].checked == true) {
+         winCheck[1].checked = false;
+      }
+   });
+   winCheck[1].addEventListener('change', function () {
+      if (winCheck[0].checked == true) {
+         winCheck[0].checked = false;
+      }
+   });
 
    winWidth.addEventListener('input', function () {
       this.value = this.value.replace(/[^0-9]/, '');
@@ -90,29 +113,14 @@ function calc() {
    calcProNext.addEventListener('click', function () {
       calcForm.viewWindow = winView.value;
       for (let i = 0; i < winCheck.length; i++) {
-         console.log(checkLabel /* [i] */ /* .textContent */ );
-         console.log(winCheck /* [i] */ /* .textContent */ );
          if (winCheck[i].checked) {
             calcForm.profileWindow = checkLabel[i].textContent;
+            break;
          } else {
             calcForm.profileWindow = 'Тип профиля не выбран';
          }
       }
-      console.log(calcForm);
    });
-   // calcEnd.addEventListener('click', function () {
-   //    for (let i = 0; i < nameClient.length; i++) {
-   //       if (nameClient[i] !== '') {
-   //          calcForm.nameClient = nameClient[i].value;
-   //       }
-   //    }
-   //    for (let i = 0; i < phoneClient.length; i++) {
-   //       if (phoneClient[i] !== '') {
-   //          calcForm.phoneClient = phoneClient[i].value;
-   //       }
-   //    }
-   //    console.log(calcForm);
-   // });
 
 // Form calc Send
    let messageCalc = {
@@ -142,7 +150,7 @@ function calc() {
 
          // Отправка формы на JSON
          let request = new XMLHttpRequest();
-         request.open('POST', '../src/server.php');
+         request.open('POST', '../dist/server.php');
          request.setRequestHeader('Content-type', 'application/json; charset=utf-8');
 
          let formData = new FormData(formCalc);
@@ -166,9 +174,12 @@ function calc() {
          for (let i = 0; i < input.length; i++) {
             input[i].value = '';
          }
+         for (let i = 0; i < winCheck.length; i++) {
+            winCheck[i].checked = false;
+         }
+         winView.value = tree;
       });
    }
-   console.log(calcForm);
    formSendCalc(formCalc);
 }
 module.exports = calc;
