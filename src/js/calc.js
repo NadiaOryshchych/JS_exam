@@ -1,15 +1,14 @@
 function calc() {
 // Modal calc
-   let glazingBtn = document.querySelectorAll('.glazing_price_btn'),
+   let overlay = document.querySelector('.overlay'),
+      glazingBtn = document.querySelectorAll('.glazing_price_btn'),
 
       popupCalc = document.querySelector('.popup_calc'),
       popupCalcPro = document.querySelector('.popup_calc_profile'),
       popupCalcProEnd = document.querySelector('.popup_calc_end'),
 
       calcNext = document.querySelector('.popup_calc_button'),
-      calcProNext = document.querySelector('.popup_calc_profile_button'),
-      
-      overlay = document.querySelector('.overlay');
+      calcProNext = document.querySelector('.popup_calc_profile_button');
 
    for (let i = 0; i < glazingBtn.length; i++) {
       glazingBtn[i].addEventListener('click', function () {

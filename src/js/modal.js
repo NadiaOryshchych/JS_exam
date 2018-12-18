@@ -8,7 +8,8 @@ function modal() {
 
       popup = document.querySelectorAll('.popup'),
       overlay = document.querySelector('.overlay'),
-      close = document.querySelectorAll('.popup_close');
+      close = document.querySelectorAll('.popup_close'),
+      input = document.querySelectorAll('.form_input');
    
    headerBtn.addEventListener('click', function () {
       overlay.style.display = 'block';
@@ -42,6 +43,9 @@ function modal() {
       }
       overlay.style.display = 'none';
       document.body.style.overflow = '';
+      for (let i = 0; i < input.length; i++) {
+         input[i].value = '';
+      }
    }
    for (let i = 0; i < close.length; i++) {
       close[i].addEventListener('click', closePopup);
@@ -50,7 +54,11 @@ function modal() {
    for (let i = 0; i < popup.length; i++) {
       popup[i].addEventListener("click", function (event) {
          if (event.target.closest(".popup_dialog")) return;
-         closePopup();
+         for (let i = 0; i < popup.length; i++) {
+            popup[i].style.display = 'none';
+         }
+         overlay.style.display = 'none';
+         document.body.style.overflow = '';
       });
    }
 }
