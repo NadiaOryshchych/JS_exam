@@ -9,17 +9,6 @@ function modal() {
       popup = document.querySelectorAll('.popup'),
       overlay = document.querySelector('.overlay'),
       close = document.querySelectorAll('.popup_close');
-
-   // function showModal(e) {
-   //    overlay.style.display = 'block';
-   //    e.style.display = 'block';
-   //    document.body.style.overflow = 'hidden';
-   // }
-   // headerBtn.addEventListener('click', showModal(popupEng));
-
-   // for (let i = 0; i < callback.length; i++) {
-   //    callback[i].addEventListener('click', showModal(popupCall));
-   // }
    
    headerBtn.addEventListener('click', function () {
       overlay.style.display = 'block';
@@ -46,7 +35,7 @@ function modal() {
       }
    } 
 
-   // Закрытие всех POPUP
+// Закрытие всех POPUP
    function closePopup() {
       for (let i = 0; i < popup.length; i++) {
          popup[i].style.display = 'none';

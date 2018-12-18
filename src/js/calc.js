@@ -1,5 +1,5 @@
 function calc() {
-   // Modal tabs + calc
+// Modal calc
    let glazingBtn = document.querySelectorAll('.glazing_price_btn'),
 
       popupCalc = document.querySelector('.popup_calc'),
@@ -7,7 +7,9 @@ function calc() {
       popupCalcProEnd = document.querySelector('.popup_calc_end'),
 
       calcNext = document.querySelector('.popup_calc_button'),
-      calcProNext = document.querySelector('.popup_calc_profile_button');
+      calcProNext = document.querySelector('.popup_calc_profile_button'),
+      
+      overlay = document.querySelector('.overlay');
 
    for (let i = 0; i < glazingBtn.length; i++) {
       glazingBtn[i].addEventListener('click', function () {
@@ -26,7 +28,7 @@ function calc() {
       popupCalcProEnd.style.display = 'block';
    });
 
-   // Tabs Calc
+// Tabs Calc
    let tabCalc = document.querySelectorAll('.balcon_tab'),
       tabCalcWrap = document.querySelector('.balcon_icons'),
       tabCalcBig = document.querySelectorAll('.balcon_content');
@@ -63,7 +65,7 @@ function calc() {
       }
    });
 
-   // Calc
+// Calc object
    let winWidth = document.getElementById('width'),
       winHeight = document.getElementById('height'),
       winView = document.getElementById('view_type'),
@@ -114,12 +116,11 @@ function calc() {
    //    console.log(calcForm);
    // });
 
-   // Отправка формы с калькулятора
+// Form calc Send
    let messageCalc = {
       loading: 'Загрузка...',
       success: 'Спасибо! Скоро мы с вами свяжемся!',
-      failure: 'Что-то пошло не так...',
-      errorPhone: 'Введите номер в правильном формате!'
+      failure: 'Что-то пошло не так...'
    };
 
    let formCalc = document.querySelector('.calc_form'),

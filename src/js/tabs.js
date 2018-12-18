@@ -39,37 +39,7 @@ function tabs() {
       }
    });
 
-   // function swichTabs(event, tab, tabContent) {
-   //    function hideTabContent(a, tab, tabContent) {
-   //       for (let i = a; i < tabContent.length; i++) {
-   //          tabContent[i].classList.remove('show');
-   //          tab[i].classList.remove('active');
-   //          tabContent[i].classList.add('hide');
-   //       }
-   //    }
-   //    hideTabContent(1);
-   //    function showTabContent(b, tab, tabContent) {
-   //       if (tabContent[b].classList.contains('hide')) {
-   //          tabContent[b].classList.remove('hide');
-   //          tabContent[b].classList.add('show');
-   //          tab[b].classList.add('active');
-   //       }
-   //    }
-   //    let target = event.target;
-   //    if (target && target.classList.contains('glazing_tab')) {
-   //       for (let i = 0; i < tab.length; i++) {
-   //          if (target == tab[i]) {
-   //             hideTabContent(0);
-   //             showTabContent(i);
-   //             break;
-   //          }
-   //       }
-   //    }
-   // }
-   // tabGlWrap.addEventListener('click', swichTabs(event, tabGlazing, tabGlContent));
-
-
-   // Tabs Decor
+// Tabs Decor
    let tabDecor = document.querySelectorAll('.decoration_tab'),
       tabDecorLink = document.querySelectorAll('.decoration_link'),
       tabDecorWrap = document.querySelector('.decoration_slider'),
